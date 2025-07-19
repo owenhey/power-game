@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Power Parcel
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e98bf49b779139c4194a0bf5f607b754, type: 3}
+      propertyPath: m_TagString
+      value: PowerParcel
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91,6 +95,7 @@ MonoBehaviour:
   collectSounds:
   - {fileID: 8300000, guid: 4b718905986ad954ca28cf760e170770, type: 3}
   - {fileID: 8300000, guid: 758601ee9cfc77c41bd085e6712acfdf, type: 3}
+  PowerBurstPreFab: {fileID: 3837554986854798849, guid: bffa516cd36d749c09271ad4d2366acd, type: 3}
   PowerToGive: 100
 --- !u!82 &3007056611235287964
 AudioSource:
@@ -208,5 +213,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 7, y: 5, z: 7}
+  m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: -0.05253744, y: -0.7983291, z: -0.08163905}
