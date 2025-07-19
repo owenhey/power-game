@@ -13,6 +13,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BuildingsDown;
     [SerializeField] private TextMeshProUGUI TimePassed;
     [SerializeField] private CanvasGroup PauseMenu;
+    [SerializeField] private CanvasGroup EndGame;
     [SerializeField] private Button PauseButton;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioMixer mixer;
@@ -36,6 +37,7 @@ public class UI : MonoBehaviour
     
     private void Start()
     {
+        EndGame.gameObject.SetActive(false);
         Refresh();
         UnPause();
     }
@@ -106,5 +108,14 @@ public class UI : MonoBehaviour
         int minutes = (int)(totalSeconds / 60);
         int seconds = (int)(totalSeconds % 60);
         return $"{minutes:D2}:{seconds:D2}";
+    }
+
+    public static void ShowEndGame() {
+        Instance.InstanceShowEndGame();
+    }
+
+    private void InstanceShowEndGame() {
+        EndGame.gameObject.SetActive(true);
+        EndGame.DOFade(1.0f, 25f);
     }
 }

@@ -36,7 +36,11 @@ public class GameManager : MonoBehaviour {
     }
     private float _timeGameBegun;
 
-
+    public void EndGame() {
+        IsPlaying = false;
+        UI.ShowEndGame();
+    }
+    
     private void Awake() {
         Instance = this;
     }

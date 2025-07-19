@@ -79,6 +79,12 @@ public class BuildingManager : MonoBehaviour {
         // }
     }
 
+    public void RecalculateLoseCondition() {
+        var unpoweredBuildings = GetPoweredBuildings(false);
+        if (unpoweredBuildings.Count >= buildings.Length / 2.0) {
+            GameManager.Instance.EndGame();
+        }
+    }
 
     private List<PowerableBuildings> GetPoweredBuildings(bool powered) {
         return buildings.Where(x => x.PoweredOn == powered).ToList();
