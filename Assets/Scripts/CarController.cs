@@ -27,6 +27,7 @@ public class CarController : MonoBehaviour {
     private float timeStartDrift;
     private float driftSpeedFactor = 1.0f;
     private Vector3 startDriftVelocity;
+    private Vector3 startDriftRotation;
     private Tween driftSpeedFactorTween;
 
     // Update is called once per frame
@@ -120,9 +121,13 @@ public class CarController : MonoBehaviour {
                 forwardInput += 1;
             }
 
-            isDrifting = false;
-            if (Input.GetKey(KeyCode.Space)) {
-                isDrifting = true;
+            bool goingFastEnough = body.linearVelocity.magnitude > minSpeedToDrift;
+            if (!isDrifting && Input.GetKeyDown(KeyCode.Space) && goingFastEnough) {
+                StartDrift();
+            }
+            
+            if (isDrifting && Input.GetKeyUp(KeyCode.Space)) {
+                StopDrift();
             }
         }
         
@@ -145,7 +150,10 @@ public class CarController : MonoBehaviour {
         isDrifting = true;
         startDriftVelocity = body.linearVelocity;
         driftSpeedFactorTween?.Kill();
-        driftSpeedFactorTween = DOTween.To(() => driftSpeedFactor, (x) => driftSpeedFactor = x, driftMinSpeedFactor, 1.5f)
+
+        startDriftRotation = transform.localEulerAngles;
+        driftSpeedFactor = 1.0f;
+        driftSpeedFactorTween = DOTween.To(() => driftSpeedFactor, (x) => driftSpeedFactor = x, driftMinSpeedFactor, 2.0f)
             .SetEase(Ease.Linear);
     }
 }
