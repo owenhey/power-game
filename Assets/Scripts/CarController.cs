@@ -176,12 +176,4 @@ public class CarController : MonoBehaviour
         driftSpeedFactorTween = DOTween.To(() => driftSpeedFactor, (x) => driftSpeedFactor = x, driftMinSpeedFactor, 2.0f)
             .SetEase(Ease.Linear);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("PowerParcel"))
-        {
-            particles.Emit(100);
-        }
-    }
 }
