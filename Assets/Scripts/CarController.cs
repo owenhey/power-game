@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class CarController : MonoBehaviour {
+public class CarController : MonoBehaviour
+{
     public bool IsPlayerOne;
-    
+
     public Rigidbody body;
     public ParticleSystem particles;
     public float baseSpeed = 20f;
@@ -19,7 +20,7 @@ public class CarController : MonoBehaviour {
     public bool isDrifting;
     public int totalPowerCollected = 0;
 
-    [Header("Drifting")] 
+    [Header("Drifting")]
     public float minSpeedToDrift = 5;
     public float driftTurnSpeedFactor = .6f;
     public float driftMinSpeedFactor = .5f;
@@ -77,75 +78,94 @@ public class CarController : MonoBehaviour {
         // particles.Emit(powerCollected);
     }
 
-    private void GetInput() {
-        if (IsPlayerOne) {
+    private void GetInput()
+    {
+        if (IsPlayerOne)
+        {
             horizontalInput = 0;
-            if (Input.GetKey(KeyCode.A)) {
+            if (Input.GetKey(KeyCode.A))
+            {
                 horizontalInput += -1;
             }
-            if (Input.GetKey(KeyCode.D)) {
+            if (Input.GetKey(KeyCode.D))
+            {
                 horizontalInput += 1;
             }
-            
+
             forwardInput = 0;
-            if (Input.GetKey(KeyCode.S)) {
+            if (Input.GetKey(KeyCode.S))
+            {
                 forwardInput += -1;
             }
-            if (Input.GetKey(KeyCode.W)) {
+            if (Input.GetKey(KeyCode.W))
+            {
                 forwardInput += 1;
             }
 
             bool goingFastEnough = body.linearVelocity.magnitude > minSpeedToDrift;
-            if (!isDrifting && Input.GetKeyDown(KeyCode.LeftShift) && goingFastEnough) {
+            if (!isDrifting && Input.GetKeyDown(KeyCode.LeftShift) && goingFastEnough)
+            {
                 StartDrift();
             }
-            
-            if (isDrifting && Input.GetKeyUp(KeyCode.LeftShift)) {
+
+            if (isDrifting && Input.GetKeyUp(KeyCode.LeftShift))
+            {
                 StopDrift();
             }
         }
-        else {
+        else
+        {
             horizontalInput = 0;
-            if (Input.GetKey(KeyCode.LeftArrow)) {
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
                 horizontalInput += -1;
             }
-            if (Input.GetKey(KeyCode.RightArrow)) {
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
                 horizontalInput += 1;
             }
-            
+
             forwardInput = 0;
-            if (Input.GetKey(KeyCode.DownArrow)) {
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
                 forwardInput += -1;
             }
-            if (Input.GetKey(KeyCode.UpArrow)) {
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
                 forwardInput += 1;
             }
 
             bool goingFastEnough = body.linearVelocity.magnitude > minSpeedToDrift;
-            if (!isDrifting && Input.GetKeyDown(KeyCode.Space) && goingFastEnough) {
+            if (!isDrifting && Input.GetKeyDown(KeyCode.Space) && goingFastEnough)
+            {
                 StartDrift();
             }
-            
-            if (isDrifting && Input.GetKeyUp(KeyCode.Space)) {
+
+            if (isDrifting && Input.GetKeyUp(KeyCode.Space))
+            {
                 StopDrift();
             }
         }
-        
-        if (forwardInput < 0) {
+
+        if (forwardInput < 0)
+        {
             horizontalInput *= -1;
         }
     }
 
-    private void StopDrift() {
+    private void StopDrift()
+    {
         isDrifting = false;
         driftSpeedFactor = 1.0f;
 
         var magOfCurVel = body.linearVelocity.magnitude;
         float speedBoost = Time.time - timeStartDrift > .3f ? 2.0f : 1.0f;
         body.linearVelocity = transform.forward * (magOfCurVel * speedBoost);
+        particles.Emit(25);
     }
 
-    private void StartDrift() {
+    private void StartDrift()
+    {
         timeStartDrift = Time.time;
         isDrifting = true;
         startDriftVelocity = body.linearVelocity;
@@ -155,5 +175,13 @@ public class CarController : MonoBehaviour {
         driftSpeedFactor = 1.0f;
         driftSpeedFactorTween = DOTween.To(() => driftSpeedFactor, (x) => driftSpeedFactor = x, driftMinSpeedFactor, 2.0f)
             .SetEase(Ease.Linear);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PowerParcel"))
+        {
+            particles.Emit(100);
+        }
     }
 }
