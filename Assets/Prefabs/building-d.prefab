@@ -57,6 +57,10 @@ PrefabInstance:
       value: building-d
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f41faa2c03d2438a8b788d1f5e02bb6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2f41faa2c03d2438a8b788d1f5e02bb6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -70,6 +74,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f41faa2c03d2438a8b788d1f5e02bb6, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4846772306382671253}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f41faa2c03d2438a8b788d1f5e02bb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -3075444071263567159}
   m_SourcePrefab: {fileID: 100100000, guid: 2f41faa2c03d2438a8b788d1f5e02bb6, type: 3}
 --- !u!23 &2960157782225881761 stripped
 MeshRenderer:
@@ -115,3 +122,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRender: {fileID: 2960157782225881761}
+  PowerRequired: 50
+  PoweredOn: 1
+--- !u!65 &-3075444071263567159
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3608627544791788404}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7, y: 6.4649997, z: 7}
+  m_Center: {x: -0.00000011920929, y: 3.2324998, z: -0.00000059604645}
