@@ -11,7 +11,7 @@ public class BuildingManager : MonoBehaviour {
 
     private List<BuildingPowerDownCycles> cycles;
 
-    public int BuildingsDown => buildings.Count(x => x.PoweredOn);
+    public int BuildingsDown => buildings.Count(x => !x.PoweredOn);
     public int TotalBuildings => buildings.Length;
 
     private void Awake()

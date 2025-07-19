@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,8 +9,12 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI KilowattsText;
     [SerializeField] private Image Darken;
     [SerializeField] private TextMeshProUGUI BuildingsDown;
+    [SerializeField] private CanvasGroup PauseMenu;
+    [SerializeField] private Button PauseButton;
 
     private static UI Instance;
+
+    public static bool IsPaused = false;
 
     private void Awake()
     {
@@ -19,6 +24,40 @@ public class UI : MonoBehaviour
         {
             Darken.gameObject.SetActive(false);
         });
+        
+        PauseButton.onClick.AddListener(Pause);
+
+        UnPause();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (IsPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                UnPause();
+            }
+        }
+    }
+
+    private void UnPause()
+    {
+        IsPaused = false;
+
+        Time.timeScale = 1;
+        PauseMenu.gameObject.SetActive(false);
+    }
+
+    private void Pause()
+    {
+        Time.timeScale = 0;
+        PauseMenu.gameObject.SetActive(true);
+        PauseMenu.DOFade(1.0f, .25f).From(0).SetUpdate(true);
     }
 
     private void Start()

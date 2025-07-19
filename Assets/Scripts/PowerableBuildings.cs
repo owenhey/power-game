@@ -5,6 +5,9 @@ using UnityEngine;
 public class PowerableBuildings : MonoBehaviour {
     [Header("References")]
     [SerializeField] private MeshRenderer meshRender;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip powerUpSound;
+    [SerializeField] private AudioClip powerDownSound;
     
     [Header("Stats")]
     [Range(0, 100)] private float powerLevel = 100;
@@ -59,11 +62,17 @@ public class PowerableBuildings : MonoBehaviour {
         powerShaderTween?.Kill();
         powerShaderTween = DOTween.To(() => PowerLevel, SetPowerLevel, 0, .5f);         
         UI.Refresh();
+
+        audioSource.clip = powerDownSound;
+        audioSource.Play();
     }
 
     private void PowerUp() {
         PoweredOn = true;
         powerShaderTween?.Kill();
         powerShaderTween = DOTween.To(() => PowerLevel, SetPowerLevel, 100, .5f);
+        
+        audioSource.clip = powerUpSound;
+        audioSource.Play();
     }
 }
