@@ -38,12 +38,12 @@ public class CarController : MonoBehaviour
         // Set angular velocity on this car
         // Determine how fast rotation speed should be based on current speed
         // rotationSpeed = 
-        Vector3 angularVelocity = body.angularVelocity + (Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);
-        body.angularVelocity = Vector3.ClampMagnitude(angularVelocity, topRotationSpeed);
+        body.AddTorque(new Vector3(0, horizontalInput * rotationSpeed * Time.deltaTime, 0));
+        body.angularVelocity = Vector3.ClampMagnitude(body.angularVelocity, topRotationSpeed);
 
         currentRotationSpeed = body.angularVelocity;
-        
         Debug.Log(body.angularVelocity);
+
 
         // InputKey = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
