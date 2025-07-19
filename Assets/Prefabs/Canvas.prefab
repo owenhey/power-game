@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KilowattsText: {fileID: 8718679014382021923}
   Darken: {fileID: 5649839906824207621}
-  BuildingsDown: {fileID: 0}
+  BuildingsDown: {fileID: 1648781963360909847}
   PauseMenu: {fileID: 5745197575311543412}
   PauseButton: {fileID: 7710688728626213618}
   volumeSlider: {fileID: 8758844582891307702}
@@ -2171,7 +2171,7 @@ GameObject:
   - component: {fileID: 2236752280166169368}
   - component: {fileID: 1648781963360909847}
   m_Layer: 5
-  m_Name: kilowatts (1)
+  m_Name: unpowered buildigns
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2636,7 +2636,7 @@ GameObject:
   - component: {fileID: 3400014574649347557}
   - component: {fileID: 4886814721842704929}
   m_Layer: 5
-  m_Name: Kilowatts title (1)
+  m_Name: Unpowered Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 0}
+  m_Texture: {fileID: 8400000, guid: 92763b17c50994a02808794167456e1b, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0

@@ -95,6 +95,6 @@ public class UI : MonoBehaviour
         
         int buildingsDown = BuildingManager.Instance.BuildingsDown;
         int buildings = BuildingManager.Instance.TotalBuildings;
-        BuildingsDown.text = $"{buildingsDown} building{(buildingsDown == 1 ? "" : "s")} without power";
+        BuildingsDown.text = $"{buildingsDown} building{(buildingsDown == 1 ? "" : "s")}";
     }
 }
