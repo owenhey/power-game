@@ -873,7 +873,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94a3e2663bfe94be582a7e6441213fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingsParent: {fileID: 164490441}
+  PowerDownData:
+  - NumToPowerDown: 5
+    NumCycles: 5
+    MaxNumAtOnce: 1
+    PercentThrough: 0
+  - NumToPowerDown: 12
+    NumCycles: 5
+    MaxNumAtOnce: 3
+    PercentThrough: 0.5
 --- !u!1001 &185962075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5371,6 +5379,54 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1847616206647813554, guid: eba1cf78e5f4542fabff045cd267ba46, type: 3}
   m_PrefabInstance: {fileID: 681361810}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2123764151
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2123764153}
+  - component: {fileID: 2123764152}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2123764152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123764151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1f5365d0a0342feb3406547c426c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeSinceGameBegan: 0
+  IsPlaying: 0
+  Kilowatts: 0
+  GameSeconds: 10
+--- !u!4 &2123764153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123764151}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2126609076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5628,3 +5684,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1707053086}
   - {fileID: 164490441}
+  - {fileID: 2123764153}

@@ -4,8 +4,14 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
     public float TimeSinceGameBegan;
     public bool IsPlaying = false;
+    public int Kilowatts;
+
+    [Header("Game Stats")] 
+    public int GameSeconds = 180;
 
     public static GameManager Instance;
+
+    private float TimeGameBegun;
 
     private void Awake() {
         Instance = this;
@@ -17,6 +23,8 @@ public class GameManager : MonoBehaviour {
     
     public void StartGame() {
         TimeSinceGameBegan = 0;
+        Kilowatts = 0;
+        TimeGameBegun = Time.time;
         
         IsPlaying = true;
     }
@@ -24,5 +32,9 @@ public class GameManager : MonoBehaviour {
     private void Update() {
         if (IsPlaying == false) return;
         TimeSinceGameBegan += Time.deltaTime;
+    }
+
+    public float GetTimeOfBuildingCycle(float percent) {
+        return Mathf.Lerp(TimeGameBegun, TimeGameBegun + GameSeconds, percent);
     }
 }
