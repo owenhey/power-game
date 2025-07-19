@@ -1,7 +1,9 @@
 ﻿using System;
 using DG.Tweening;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -11,6 +13,8 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI BuildingsDown;
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private Button PauseButton;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private AudioMixer mixer;
 
     private static UI Instance;
 
@@ -26,7 +30,14 @@ public class UI : MonoBehaviour
         });
         
         PauseButton.onClick.AddListener(Pause);
+        volumeSlider.onValueChanged.AddListener(HandleSliderChange);
 
+        UnPause();
+    }
+    
+    private void Start()
+    {
+        Refresh();
         UnPause();
     }
 
@@ -34,7 +45,7 @@ public class UI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (IsPaused)
+            if (!IsPaused)
             {
                 Pause();
             }
@@ -60,9 +71,18 @@ public class UI : MonoBehaviour
         PauseMenu.DOFade(1.0f, .25f).From(0).SetUpdate(true);
     }
 
-    private void Start()
-    {
-        Refresh();
+    private void HandleSliderChange(float f) {
+        if (f < .5f) {
+            float finalVal = f * 2;
+            finalVal = 1 - finalVal;
+            finalVal *= -80;
+            mixer.SetFloat("Volume", finalVal);
+        }
+        else {
+            float finalVal = (f - .5f) * 2;
+            finalVal *= 20;
+            mixer.SetFloat("Volume", finalVal);
+        }
     }
 
     public static void Refresh()
