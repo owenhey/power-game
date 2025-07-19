@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class CarController : MonoBehaviour {
@@ -18,6 +19,16 @@ public class CarController : MonoBehaviour {
     public bool isDrifting;
     public int totalPowerCollected = 0;
 
+    [Header("Drifting")] 
+    public float minSpeedToDrift = 5;
+    public float driftTurnSpeedFactor = .6f;
+    public float driftMinSpeedFactor = .5f;
+
+    private float timeStartDrift;
+    private float driftSpeedFactor = 1.0f;
+    private Vector3 startDriftVelocity;
+    private Tween driftSpeedFactorTween;
+
     // Update is called once per frame
     void Update()
     {
@@ -27,11 +38,11 @@ public class CarController : MonoBehaviour {
         GetInput();
 
         // Set linear velocity on this car
-        Vector3 linearVelocity = body.linearVelocity + (transform.forward * forwardInput * baseSpeed * Time.deltaTime);
+        float turnFactor = isDrifting ? driftTurnSpeedFactor : 1.0f;
+        Vector3 linearVelocity = body.linearVelocity + (transform.forward * (turnFactor * forwardInput * baseSpeed * Time.deltaTime));
         // If drifting, just use linear velocity & slow down the car slightly
-        if (isDrifting)
-        {
-            linearVelocity = linearVelocity * 0.99f;
+        if (isDrifting) {
+            linearVelocity = startDriftVelocity * driftSpeedFactor;
             powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 3);
         }
         else
@@ -80,13 +91,13 @@ public class CarController : MonoBehaviour {
                 forwardInput += 1;
             }
 
-            if (forwardInput < 0) {
-                horizontalInput *= -1;
+            bool goingFastEnough = body.linearVelocity.magnitude > minSpeedToDrift;
+            if (!isDrifting && Input.GetKeyDown(KeyCode.LeftShift) && goingFastEnough) {
+                StartDrift();
             }
-
-            isDrifting = false;
-            if (Input.GetKey(KeyCode.LeftShift)) {
-                isDrifting = true;
+            
+            if (isDrifting && Input.GetKeyUp(KeyCode.LeftShift)) {
+                StopDrift();
             }
         }
         else {
@@ -111,5 +122,27 @@ public class CarController : MonoBehaviour {
                 isDrifting = true;
             }
         }
+        
+        if (forwardInput < 0) {
+            horizontalInput *= -1;
+        }
+    }
+
+    private void StopDrift() {
+        isDrifting = false;
+        driftSpeedFactor = 1.0f;
+
+        var magOfCurVel = body.linearVelocity.magnitude;
+        float speedBoost = Time.time - timeStartDrift > .3f ? 2.0f : 1.0f;
+        body.linearVelocity = transform.forward * (magOfCurVel * speedBoost);
+    }
+
+    private void StartDrift() {
+        timeStartDrift = Time.time;
+        isDrifting = true;
+        startDriftVelocity = body.linearVelocity;
+        driftSpeedFactorTween?.Kill();
+        driftSpeedFactorTween = DOTween.To(() => driftSpeedFactor, (x) => driftSpeedFactor = x, driftMinSpeedFactor, 1.5f)
+            .SetEase(Ease.Linear);
     }
 }
