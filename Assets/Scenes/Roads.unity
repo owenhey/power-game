@@ -1949,11 +1949,12 @@ MonoBehaviour:
   baseSpeed: 20
   topSpeed: 20
   currentSpeed: {x: 0, y: 0, z: 0}
-  rotationSpeed: 40
-  topRotationSpeed: 50
+  rotationSpeed: 1
+  topRotationSpeed: 3
   currentRotationSpeed: {x: 0, y: 0, z: 0}
   horizontalInput: 0
   forwardInput: 0
+  isDrifting: 0
   InputKey: {x: 0, y: 0, z: 0}
 --- !u!23 &132932878 stripped
 MeshRenderer:

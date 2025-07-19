@@ -32,7 +32,7 @@ public class CarController : MonoBehaviour
         Vector3 linearVelocity = body.linearVelocity + (transform.forward * forwardInput * baseSpeed * Time.deltaTime);
         linearVelocity = isDrifting ? linearVelocity : Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
         body.linearVelocity = Vector3.ClampMagnitude(linearVelocity, topSpeed);
-
+        
         currentSpeed = body.linearVelocity;
 
         // Set angular velocity on this car
@@ -42,6 +42,8 @@ public class CarController : MonoBehaviour
         body.angularVelocity = Vector3.ClampMagnitude(angularVelocity, topRotationSpeed);
 
         currentRotationSpeed = body.angularVelocity;
+        
+        Debug.Log(body.angularVelocity);
 
         // InputKey = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
