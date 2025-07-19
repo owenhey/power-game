@@ -12,7 +12,7 @@ public class CarController : MonoBehaviour
     public float horizontalInput;
     public float forwardInput;
     public bool isDrifting;
-    public Vector3 InputKey;
+    public int totalPowerCollected = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,6 +23,8 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int powerCollected = 0;
+
         // Get user input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         forwardInput = Input.GetAxisRaw("Vertical");
@@ -30,9 +32,19 @@ public class CarController : MonoBehaviour
 
         // Set linear velocity on this car
         Vector3 linearVelocity = body.linearVelocity + (transform.forward * forwardInput * baseSpeed * Time.deltaTime);
-        linearVelocity = isDrifting ? linearVelocity : Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
+        // If drifting, just use linear velocity & slow down the car slightly
+        if (isDrifting)
+        {
+            linearVelocity = linearVelocity * 0.99f;
+            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 5);
+        }
+        else
+        {
+            linearVelocity = Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
+            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 10);
+        }
         body.linearVelocity = Vector3.ClampMagnitude(linearVelocity, topSpeed);
-        
+
         currentSpeed = body.linearVelocity;
 
         // Set angular velocity on this car
@@ -43,17 +55,13 @@ public class CarController : MonoBehaviour
 
         currentRotationSpeed = body.angularVelocity;
 
+        // Add speed to kilowatts
+        if (GameManager.Instance != null) {
+            GameManager.Instance.Kilowatts += powerCollected;
+            Debug.Log("Power Collected: " + powerCollected);
+            Debug.Log("Kilowatts: " + GameManager.Instance.Kilowatts);
+        }
 
-        // InputKey = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-    }
-
-    void FixedUpdate()
-    {
-        // body.AddForce(InputKey * 50);
-        // body.linearVelocity = InputKey * 10;
-        // body.MovePosition((Vector3) transform.position * InputKey * 10 * Time.deltaTime);
-
-        // float Angle = Mathf.Atan2(InputKey.x, InputKey.z) * Mathf.Rad2Deg;
-        // transform.rotation = Quaternion.Euler(0, Angle, 0);
+        totalPowerCollected += powerCollected;
     }
 }
