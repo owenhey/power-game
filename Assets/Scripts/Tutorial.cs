@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ public class Tutorial : MonoBehaviour
     public GameObject tut2;
     public GameObject tut3;
 
+    [SerializeField] private List<GameObject> onePlayerThings;
+    [SerializeField] private List<GameObject> twoPlayerThings;
+
     private void Awake()
     {
         Darkener.gameObject.SetActive(true);
@@ -26,6 +30,13 @@ public class Tutorial : MonoBehaviour
         BackButton.onClick.AddListener(Back);
         PlayButton.onClick.AddListener(Play);
         NextButton.onClick.AddListener(Next);
+
+        foreach (var thing in onePlayerThings) {
+            thing.SetActive(GameSettings.PlayerCount == 1);
+        }
+        foreach (var thing in twoPlayerThings) {
+            thing.SetActive(GameSettings.PlayerCount == 2);
+        }
         
         UpdateTut();
     }
