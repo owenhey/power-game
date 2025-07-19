@@ -8,6 +8,7 @@ public class PowerableBuildings : MonoBehaviour {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip powerUpSound;
     [SerializeField] private AudioClip powerDownSound;
+    [SerializeField] private GameObject poweredMapIndicator;
     
     [Header("Stats")]
     [Range(0, 100)] private float powerLevel = 100;
@@ -65,6 +66,7 @@ public class PowerableBuildings : MonoBehaviour {
 
         audioSource.clip = powerDownSound;
         audioSource.Play();
+        poweredMapIndicator.gameObject.SetActive(false);
     }
 
     private void PowerUp() {
@@ -74,5 +76,7 @@ public class PowerableBuildings : MonoBehaviour {
         
         audioSource.clip = powerUpSound;
         audioSource.Play();
+        
+        poweredMapIndicator.gameObject.SetActive(true);
     }
 }
