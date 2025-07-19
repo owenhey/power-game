@@ -4,10 +4,11 @@ public class CarController : MonoBehaviour
 {
     public Rigidbody body;
     public float baseSpeed = 20f;
+    public float topSpeed = 200f;
     public Vector3 currentSpeed;
-    public float rotationSpeed = 20f;
-    public float acceleration;
-    public float topSpeed = 0;
+    public float rotationSpeed = 35f;
+    public float topRotationSpeed = 50f;
+    public Vector3 currentRotationSpeed;
     public float horizontalInput;
     public float forwardInput;
     public Vector3 InputKey;
@@ -21,17 +22,22 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get user input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         forwardInput = Input.GetAxisRaw("Vertical");
 
-        body.angularVelocity += Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime;
-        body.linearVelocity += transform.forward * forwardInput * baseSpeed * Time.deltaTime;
+        // Set angular velocity on this car
+        Vector3 angularVelocity = body.angularVelocity + (Vector3.up * horizontalInput * rotationSpeed * Time.deltaTime);
+        body.angularVelocity = Vector3.ClampMagnitude(angularVelocity, topRotationSpeed);
 
-        body.linearVelocity = transform.forward * (body.linearVelocity).magnitude;
+        currentRotationSpeed = body.angularVelocity;
 
-        currentSpeed = body.linearVelocity;
-
+        // Set linear velocity on this car
+        Vector3 linearVelocity = body.linearVelocity + (transform.forward * forwardInput * baseSpeed * Time.deltaTime);
+        linearVelocity = Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
+        body.linearVelocity = Vector3.ClampMagnitude(linearVelocity, topSpeed);
         
+        currentSpeed = body.linearVelocity;
 
         // InputKey = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
     }
