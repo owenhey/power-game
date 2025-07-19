@@ -1041,7 +1041,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9
+      value: 7.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1049,7 +1049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15
+      value: -12.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1116,6 +1116,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 132932877}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 132932882}
   m_SourcePrefab: {fileID: 100100000, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
 --- !u!1 &132932873 stripped
 GameObject:
@@ -1170,6 +1173,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.5003481, z: 2.140151}
   m_Center: {x: 0, y: 0.24982595, z: -0.0426926}
+--- !u!23 &132932876 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3758833742942399946, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
+  m_PrefabInstance: {fileID: 132932872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &132932877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1185,11 +1193,54 @@ MonoBehaviour:
   body: {fileID: 132932874}
   baseSpeed: 20
   currentSpeed: {x: 0, y: 0, z: 0}
-  rotationSpeed: 5
-  acceleration: 0
+  rotationSpeed: 40
+  acceleration: 10
   topSpeed: 0
   horizontalInput: 0
   forwardInput: 0
+--- !u!23 &132932878 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7038207622098808634, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
+  m_PrefabInstance: {fileID: 132932872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &132932879 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -724493364965441153, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
+  m_PrefabInstance: {fileID: 132932872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &132932880 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2717756171294132697, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
+  m_PrefabInstance: {fileID: 132932872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &132932881 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8449996119470504636, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
+  m_PrefabInstance: {fileID: 132932872}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &132932882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132932873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2576dd4859f445aa7e65eebdf3e198b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 64
+  meshRends:
+  - {fileID: 132932881}
+  - {fileID: 132932880}
+  - {fileID: 132932879}
+  - {fileID: 132932878}
+  - {fileID: 132932876}
+  VisibleMat: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+  BehindMat: {fileID: 2100000, guid: 99681c1b5f08ffc4f956afa9f62738a2, type: 2}
 --- !u!4 &133494968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1847616206647813554, guid: eba1cf78e5f4542fabff045cd267ba46, type: 3}
@@ -8494,8 +8545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1783559346}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5221209, y: -0.30236807, z: 0.20570342, w: -0.77048653}
-  m_LocalPosition: {x: -22.584396, y: 63.545418, z: -8.230803}
+  m_LocalRotation: {x: 0.3820498, y: 0.35473847, z: -0.16175102, w: 0.8378755}
+  m_LocalPosition: {x: -38.110867, y: 59.176754, z: -33.34629}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
