@@ -1,7 +1,8 @@
 using UnityEngine;
 
-public class CarController : MonoBehaviour
-{
+public class CarController : MonoBehaviour {
+    public bool IsPlayerOne;
+    
     public Rigidbody body;
     public float baseSpeed = 20f;
     public float topSpeed = 200f;
@@ -14,21 +15,13 @@ public class CarController : MonoBehaviour
     public bool isDrifting;
     public int totalPowerCollected = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         int powerCollected = 0;
 
         // Get user input
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        forwardInput = Input.GetAxisRaw("Vertical");
-        isDrifting = Input.GetKey(KeyCode.LeftShift);
+        GetInput();
 
         // Set linear velocity on this car
         Vector3 linearVelocity = body.linearVelocity + (transform.forward * forwardInput * baseSpeed * Time.deltaTime);
@@ -62,5 +55,56 @@ public class CarController : MonoBehaviour
         }
 
         totalPowerCollected += powerCollected;
+    }
+
+    private void GetInput() {
+        if (IsPlayerOne) {
+            horizontalInput = 0;
+            if (Input.GetKey(KeyCode.A)) {
+                horizontalInput += -1;
+            }
+            if (Input.GetKey(KeyCode.D)) {
+                horizontalInput += 1;
+            }
+            
+            forwardInput = 0;
+            if (Input.GetKey(KeyCode.S)) {
+                forwardInput += -1;
+            }
+            if (Input.GetKey(KeyCode.W)) {
+                forwardInput += 1;
+            }
+
+            if (forwardInput < 0) {
+                horizontalInput *= -1;
+            }
+
+            isDrifting = false;
+            if (Input.GetKey(KeyCode.LeftShift)) {
+                isDrifting = true;
+            }
+        }
+        else {
+            horizontalInput = 0;
+            if (Input.GetKey(KeyCode.LeftArrow)) {
+                horizontalInput += -1;
+            }
+            if (Input.GetKey(KeyCode.RightArrow)) {
+                horizontalInput += 1;
+            }
+            
+            forwardInput = 0;
+            if (Input.GetKey(KeyCode.DownArrow)) {
+                forwardInput += -1;
+            }
+            if (Input.GetKey(KeyCode.UpArrow)) {
+                forwardInput += 1;
+            }
+
+            isDrifting = false;
+            if (Input.GetKey(KeyCode.Space)) {
+                isDrifting = true;
+            }
+        }
     }
 }
