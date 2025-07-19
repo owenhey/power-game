@@ -9,7 +9,8 @@ public class PowerParcel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.Kilowatts += PowerToGive;
+            if(GameManager.Instance != null)
+             GameManager.Instance.Kilowatts += PowerToGive;
             Destroy(gameObject);
         }
     }

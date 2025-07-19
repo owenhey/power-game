@@ -1,9 +1,12 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI KilowattsText;
+    [SerializeField] private Image Darken;
     [SerializeField] private TextMeshProUGUI BuildingsDown;
 
     private static UI Instance;
@@ -11,6 +14,11 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Darken.gameObject.SetActive(true);
+        Darken.DOColor(Color.clear, .5f).From(Color.black).OnComplete(() =>
+        {
+            Darken.gameObject.SetActive(false);
+        });
     }
 
     private void Start()

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRender: {fileID: 2960157782225881761}
-  PowerRequired: 50
+  PowerRequired: 40
   PoweredOn: 1
 --- !u!65 &-3075444071263567159
 BoxCollider:
