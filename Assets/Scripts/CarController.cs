@@ -4,12 +4,15 @@ public class CarController : MonoBehaviour {
     public bool IsPlayerOne;
     
     public Rigidbody body;
+    public ParticleSystem particles;
     public float baseSpeed = 20f;
     public float topSpeed = 20f;
     public Vector3 currentSpeed;
+
     public float rotationSpeed = 750f;
     public float topRotationSpeed = 2.25f;
     public Vector3 currentRotationSpeed;
+
     public float horizontalInput;
     public float forwardInput;
     public bool isDrifting;
@@ -49,12 +52,15 @@ public class CarController : MonoBehaviour {
         currentRotationSpeed = body.angularVelocity;
 
         // Add speed to kilowatts
-        if (GameManager.Instance != null) {
+        if (GameManager.Instance != null)
+        {
             GameManager.Instance.Kilowatts += powerCollected;
             Debug.Log("Kilowatts: " + GameManager.Instance.Kilowatts);
         }
 
         totalPowerCollected += powerCollected;
+
+        // particles.Emit(powerCollected);
     }
 
     private void GetInput() {
