@@ -54,7 +54,6 @@ public class CarController : MonoBehaviour
         body.angularVelocity = Vector3.ClampMagnitude(body.angularVelocity, topRotationSpeed);
 
         currentRotationSpeed = body.angularVelocity;
-        // Debug.Log(body.angularVelocity);
 
         // Add speed to kilowatts
         if (GameManager.Instance != null) {
