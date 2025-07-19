@@ -36,7 +36,7 @@ public class CarController : MonoBehaviour
         if (isDrifting)
         {
             linearVelocity = linearVelocity * 0.99f;
-            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 5);
+            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 3);
         }
         else
         {
@@ -59,7 +59,6 @@ public class CarController : MonoBehaviour
         // Add speed to kilowatts
         if (GameManager.Instance != null) {
             GameManager.Instance.Kilowatts += powerCollected;
-            Debug.Log("Power Collected: " + powerCollected);
             Debug.Log("Kilowatts: " + GameManager.Instance.Kilowatts);
         }
 
