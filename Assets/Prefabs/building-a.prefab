@@ -57,6 +57,10 @@ PrefabInstance:
       value: building-a
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ecde950741d674708815f74c92e3a7e1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ecde950741d674708815f74c92e3a7e1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}

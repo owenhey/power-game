@@ -27,7 +27,7 @@ public class UI : MonoBehaviour
     private void InstanceRefresh()
     {
         int kilos = GameManager.Instance.Kilowatts;
-        KilowattsText.text = kilos + (kilos == 1 ? " Kilowatt" : " Kilowatts");
+        KilowattsText.text = kilos + (" kW");
         
         int buildingsDown = BuildingManager.Instance.BuildingsDown;
         int buildings = BuildingManager.Instance.TotalBuildings;
