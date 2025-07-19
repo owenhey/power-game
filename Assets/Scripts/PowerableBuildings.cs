@@ -1,4 +1,5 @@
 using System;
+using DefaultNamespace;
 using DG.Tweening;
 using UnityEngine;
 
@@ -31,10 +32,11 @@ public class PowerableBuildings : MonoBehaviour {
 
 
     public void OnMouseDown() {
+        Debug.Log("Sdfs");
         AttemptPowerUp();
     }
 
-    public void SetPowerLevel(float _powerLevel) {
+    private void SetPowerLevel(float _powerLevel) {
         powerLevel = _powerLevel;
         material.SetFloat(ShaderPowerLevel, _powerLevel);
     }
@@ -43,15 +45,17 @@ public class PowerableBuildings : MonoBehaviour {
         int collectedKilowatts = GameManager.Instance.Kilowatts;
         if (collectedKilowatts >= PowerRequired) {
             GameManager.Instance.Kilowatts -= PowerRequired;
+            PowerUp();
         }
-
-        PowerUp();
+            
+        UI.Refresh();
     }
     
     public void PowerDown() {
         PoweredOn = false;
         powerShaderTween?.Kill();
-        powerShaderTween = DOTween.To(() => PowerLevel, SetPowerLevel, 0, .5f);
+        powerShaderTween = DOTween.To(() => PowerLevel, SetPowerLevel, 0, .5f);         
+        UI.Refresh();
     }
 
     private void PowerUp() {

@@ -10,10 +10,13 @@ public class BuildingManager : MonoBehaviour {
     [SerializeField] private BuildingPowerDownData[] PowerDownData;
 
     private List<BuildingPowerDownCycles> cycles;
-    
-    
 
-    private void Awake() {
+    public int BuildingsDown => buildings.Count(x => x.PoweredOn);
+    public int TotalBuildings => buildings.Length;
+
+    private void Awake()
+    {
+        Instance = this;
         buildings = GetComponentsInChildren<PowerableBuildings>();
     }
 
@@ -37,7 +40,6 @@ public class BuildingManager : MonoBehaviour {
             var cycle = cyclesData.Cycles[i];
             if(cycle.Fired) continue;
             if (cyclesData.Cycles[i].Time < currTime) {
-                Debug.Log("Firing cycle at time: " + cycle.Time);
                 FireCycle(cycle);
                 break;
             }
@@ -69,11 +71,12 @@ public class BuildingManager : MonoBehaviour {
             });
         }
         
-        foreach (var cycle in cycles) {
-            foreach (var powerDown in cycle.Cycles) {
-                Debug.Log(powerDown);
-            }
-        }
+        // Debugs all the cycles out
+        // foreach (var cycle in cycles) {
+        //     foreach (var powerDown in cycle.Cycles) {
+        //         Debug.Log(powerDown);
+        //     }
+        // }
     }
 
 
@@ -96,8 +99,7 @@ public class BuildingPowerDownData {
         if (NumToPowerDown <= 0 || NumCycles <= 0) return cycleData;
    
         float totalDuration = nextTimeEnd - timeNow;
-        float adjustedStartTime = timeNow + (totalDuration * PercentThrough);
-        float cycleDuration = (nextTimeEnd - adjustedStartTime) / NumCycles;
+        float cycleDuration = totalDuration / NumCycles;
    
         int[] powerDownsPerCycle = new int[NumCycles];
         int basePowerDowns = NumToPowerDown / NumCycles;
@@ -116,9 +118,9 @@ public class BuildingPowerDownData {
         }
    
         for (int i = 0; i < NumCycles; i++) {
-            float baseTime = adjustedStartTime + (i * cycleDuration);
+            float baseTime = timeNow + (i * cycleDuration);
             float jitter = Random.Range(-cycleDuration * 0.2f, cycleDuration * 0.2f);
-            float cycleTime = Mathf.Clamp(baseTime + jitter, adjustedStartTime, nextTimeEnd);
+            float cycleTime = Mathf.Clamp(baseTime + jitter, timeNow, nextTimeEnd);
        
             cycleData.Add(new BuildingPowerDownCycle {
                 NumToPowerDown = powerDownsPerCycle[i],

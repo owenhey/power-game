@@ -1,10 +1,24 @@
 using System;
+using DefaultNamespace;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
     public float TimeSinceGameBegan;
     public bool IsPlaying = false;
-    public int Kilowatts;
+
+    public int Kilowatts
+    {
+        get
+        {
+            return kilowatts;
+        }
+        set
+        {
+            kilowatts = value;
+            UI.Refresh();
+        }
+    }
+    private int kilowatts;
 
     [Header("Game Stats")] 
     public int GameSeconds = 180;
