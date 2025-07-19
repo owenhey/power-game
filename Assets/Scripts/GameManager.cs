@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour {
     private void Update() {
         if (IsPlaying == false) return;
         TimeSinceGameBegan += Time.deltaTime;
+
+        if (TimeSinceGameBegan > GameSeconds) {
+            EndGame();
+        }
     }
 
     public float GetTimeOfBuildingCycle(float percent) {

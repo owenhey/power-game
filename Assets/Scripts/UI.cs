@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI : MonoBehaviour
@@ -15,6 +16,8 @@ public class UI : MonoBehaviour
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private CanvasGroup EndGame;
     [SerializeField] private Button PauseButton;
+    [SerializeField] private Button EndGameButton;
+    [SerializeField] private Button QuitButton;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioMixer mixer;
 
@@ -33,8 +36,11 @@ public class UI : MonoBehaviour
         
         PauseButton.onClick.AddListener(Pause);
         volumeSlider.onValueChanged.AddListener(HandleSliderChange);
+        
+        EndGameButton.onClick.AddListener(QuitGame);
+        QuitButton.onClick.AddListener(QuitGame);
     }
-    
+
     private void Start()
     {
         EndGame.gameObject.SetActive(false);
@@ -112,6 +118,14 @@ public class UI : MonoBehaviour
 
     public static void ShowEndGame() {
         Instance.InstanceShowEndGame();
+    }
+
+    private void QuitGame() {
+        Darken.gameObject.SetActive(true);
+        Darken.DOColor(Color.black, .5f).From(Color.clear).SetUpdate(true).OnComplete(() =>
+        {
+            SceneManager.LoadScene("Title");
+        });
     }
 
     private void InstanceShowEndGame() {

@@ -44,6 +44,8 @@ public class BuildingManager : MonoBehaviour {
                 break;
             }
         }
+
+        Time.timeScale = 4;
     }
 
     private void FireCycle(BuildingPowerDownCycle cycle) {

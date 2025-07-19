@@ -67,6 +67,8 @@ public class PowerableBuildings : MonoBehaviour {
         audioSource.clip = powerDownSound;
         audioSource.Play();
         poweredMapIndicator.gameObject.SetActive(false);
+        
+        BuildingManager.Instance.RecalculateLoseCondition();
     }
 
     private void PowerUp() {
