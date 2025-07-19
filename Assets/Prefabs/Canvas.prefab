@@ -1041,6 +1041,7 @@ MonoBehaviour:
   KilowattsText: {fileID: 8718679014382021923}
   Darken: {fileID: 5649839906824207621}
   BuildingsDown: {fileID: 1648781963360909847}
+  TimePassed: {fileID: 2496097642530202389}
   PauseMenu: {fileID: 5745197575311543412}
   PauseButton: {fileID: 7710688728626213618}
   volumeSlider: {fileID: 8758844582891307702}

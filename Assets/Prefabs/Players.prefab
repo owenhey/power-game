@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2557958918388179971}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.371748, y: -0.60150105, z: 0.3717481, w: 0.60150087}
-  m_LocalPosition: {x: 15.660002, y: 20.39, z: -18.43}
+  m_LocalRotation: {x: 0.33365384, y: -0.6234382, z: 0.3336539, w: 0.62343806}
+  m_LocalPosition: {x: 17.060001, y: 15, z: -13.499999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,7 +117,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -424,8 +424,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6525986952788272592}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.371748, y: -0.60150105, z: 0.3717481, w: 0.60150087}
-  m_LocalPosition: {x: 17.060001, y: 20.39, z: -12.629998}
+  m_LocalRotation: {x: 0.33365384, y: -0.6234382, z: 0.3336539, w: 0.62343806}
+  m_LocalPosition: {x: 18.460001, y: 15, z: -7.699999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -513,7 +513,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -849,6 +849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPlayerOne: 0
   body: {fileID: 6398349563732874513}
+  particles: {fileID: 0}
   baseSpeed: 20
   topSpeed: 200
   currentSpeed: {x: 0, y: 0, z: 0}
@@ -1012,6 +1013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPlayerOne: 1
   body: {fileID: 2621027905747687045}
+  particles: {fileID: 0}
   baseSpeed: 20
   topSpeed: 20
   currentSpeed: {x: 0, y: 0, z: 0}

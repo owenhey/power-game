@@ -11,6 +11,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI KilowattsText;
     [SerializeField] private Image Darken;
     [SerializeField] private TextMeshProUGUI BuildingsDown;
+    [SerializeField] private TextMeshProUGUI TimePassed;
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private Button PauseButton;
     [SerializeField] private Slider volumeSlider;
@@ -96,5 +97,14 @@ public class UI : MonoBehaviour
         int buildingsDown = BuildingManager.Instance.BuildingsDown;
         int buildings = BuildingManager.Instance.TotalBuildings;
         BuildingsDown.text = $"{buildingsDown} building{(buildingsDown == 1 ? "" : "s")}";
+        
+        TimePassed.text = $"{FloatToTimeString(GameManager.Instance.TimeSinceGameBegan)}";
+    }
+    
+    public static string FloatToTimeString(float totalSeconds)
+    {
+        int minutes = (int)(totalSeconds / 60);
+        int seconds = (int)(totalSeconds % 60);
+        return $"{minutes:D2}:{seconds:D2}";
     }
 }

@@ -22,9 +22,20 @@ public class GameManager : MonoBehaviour {
     [Header("Game Stats")] 
     public int GameSeconds = 180;
 
+
     public static GameManager Instance;
 
-    private float TimeGameBegun;
+    private float TimeGameBegun {
+        get {
+            return _timeGameBegun;
+        }
+        set {
+            _timeGameBegun = value;
+            UI.Refresh();
+        }
+    }
+    private float _timeGameBegun;
+
 
     private void Awake() {
         Instance = this;
