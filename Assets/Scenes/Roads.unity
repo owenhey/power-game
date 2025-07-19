@@ -21206,7 +21206,7 @@ PrefabInstance:
     - target: {fileID: -724493364965441153, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: 9279d915296ac4278bc61fabcd5b68c2, type: 2}
     - target: {fileID: 919132149155446097, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: m_Name
       value: RedCar Big
@@ -21226,15 +21226,15 @@ PrefabInstance:
     - target: {fileID: 2717756171294132697, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: 9279d915296ac4278bc61fabcd5b68c2, type: 2}
     - target: {fileID: 3758833742942399946, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: 9279d915296ac4278bc61fabcd5b68c2, type: 2}
     - target: {fileID: 7038207622098808634, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: 9279d915296ac4278bc61fabcd5b68c2, type: 2}
     - target: {fileID: 7752030738778784939, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -21242,7 +21242,7 @@ PrefabInstance:
     - target: {fileID: 8449996119470504636, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: 9279d915296ac4278bc61fabcd5b68c2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24169,7 +24169,7 @@ PrefabInstance:
     - target: {fileID: -724493364965441153, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: ff528953194ca4215b3a45035ef8e742, type: 2}
     - target: {fileID: 919132149155446097, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: m_Name
       value: BlueCarBig
@@ -24189,15 +24189,15 @@ PrefabInstance:
     - target: {fileID: 2717756171294132697, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: ff528953194ca4215b3a45035ef8e742, type: 2}
     - target: {fileID: 3758833742942399946, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: ff528953194ca4215b3a45035ef8e742, type: 2}
     - target: {fileID: 7038207622098808634, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: ff528953194ca4215b3a45035ef8e742, type: 2}
     - target: {fileID: 7752030738778784939, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -24205,7 +24205,7 @@ PrefabInstance:
     - target: {fileID: 8449996119470504636, guid: 4f507c727c45c469ebf799591c1ef04e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5e5ff5959e2e74a42b2c298218b5ed67, type: 2}
+      objectReference: {fileID: 2100000, guid: ff528953194ca4215b3a45035ef8e742, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26867,20 +26867,36 @@ PrefabInstance:
       value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 111275005659342160, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
+      propertyPath: minSpeedToDrift
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 111275005659342160, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: topRotationSpeed
       value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 111275005659342160, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
+      propertyPath: driftMinSpeedFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 111275005659342160, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: driftTurnSpeedFactor
-      value: 0.35
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 1163661944040872898, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: particles
       value: 
       objectReference: {fileID: 239697513}
     - target: {fileID: 1163661944040872898, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
+      propertyPath: minSpeedToDrift
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163661944040872898, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
+      propertyPath: driftMinSpeedFactor
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163661944040872898, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: driftTurnSpeedFactor
-      value: 0.35
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 2056868831635256345, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: m_LocalPosition.x
