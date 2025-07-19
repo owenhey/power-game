@@ -42,7 +42,6 @@ public class CarController : MonoBehaviour
         body.angularVelocity = Vector3.ClampMagnitude(body.angularVelocity, topRotationSpeed);
 
         currentRotationSpeed = body.angularVelocity;
-        Debug.Log(body.angularVelocity);
 
 
         // InputKey = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
