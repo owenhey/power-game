@@ -55,7 +55,6 @@ public class CarController : MonoBehaviour {
         if (GameManager.Instance != null)
         {
             GameManager.Instance.Kilowatts += powerCollected;
-            Debug.Log("Kilowatts: " + GameManager.Instance.Kilowatts);
         }
 
         totalPowerCollected += powerCollected;
