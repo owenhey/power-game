@@ -12,7 +12,6 @@ public class CarController : MonoBehaviour
     public float horizontalInput;
     public float forwardInput;
     public bool isDrifting;
-    public Vector3 InputKey;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +29,15 @@ public class CarController : MonoBehaviour
 
         // Set linear velocity on this car
         Vector3 linearVelocity = body.linearVelocity + (transform.forward * forwardInput * baseSpeed * Time.deltaTime);
-        linearVelocity = isDrifting ? linearVelocity : Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
+        // If drifting, just use linear velocity & slow down the car slightly
+        if (isDrifting)
+        {
+            linearVelocity = linearVelocity * 0.99f;
+        }
+        else
+        {
+            linearVelocity = Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
+        }
         body.linearVelocity = Vector3.ClampMagnitude(linearVelocity, topSpeed);
         
         currentSpeed = body.linearVelocity;
@@ -42,19 +49,6 @@ public class CarController : MonoBehaviour
         body.angularVelocity = Vector3.ClampMagnitude(body.angularVelocity, topRotationSpeed);
 
         currentRotationSpeed = body.angularVelocity;
-        Debug.Log(body.angularVelocity);
-
-
-        // InputKey = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-    }
-
-    void FixedUpdate()
-    {
-        // body.AddForce(InputKey * 50);
-        // body.linearVelocity = InputKey * 10;
-        // body.MovePosition((Vector3) transform.position * InputKey * 10 * Time.deltaTime);
-
-        // float Angle = Mathf.Atan2(InputKey.x, InputKey.z) * Mathf.Rad2Deg;
-        // transform.rotation = Quaternion.Euler(0, Angle, 0);
+        // Debug.Log(body.angularVelocity);
     }
 }
