@@ -5,10 +5,10 @@ public class CarController : MonoBehaviour {
     
     public Rigidbody body;
     public float baseSpeed = 20f;
-    public float topSpeed = 200f;
+    public float topSpeed = 20f;
     public Vector3 currentSpeed;
-    public float rotationSpeed = 5f;
-    public float topRotationSpeed = 8f;
+    public float rotationSpeed = 750f;
+    public float topRotationSpeed = 2.25f;
     public Vector3 currentRotationSpeed;
     public float horizontalInput;
     public float forwardInput;
