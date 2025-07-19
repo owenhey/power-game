@@ -31,8 +31,6 @@ public class UI : MonoBehaviour
         
         PauseButton.onClick.AddListener(Pause);
         volumeSlider.onValueChanged.AddListener(HandleSliderChange);
-
-        UnPause();
     }
     
     private void Start()
@@ -59,13 +57,12 @@ public class UI : MonoBehaviour
     private void UnPause()
     {
         IsPaused = false;
-
         Time.timeScale = 1;
         PauseMenu.gameObject.SetActive(false);
     }
 
-    private void Pause()
-    {
+    private void Pause() {
+        IsPaused = true;
         Time.timeScale = 0;
         PauseMenu.gameObject.SetActive(true);
         PauseMenu.DOFade(1.0f, .25f).From(0).SetUpdate(true);
