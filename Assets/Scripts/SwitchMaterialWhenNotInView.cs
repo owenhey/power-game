@@ -26,7 +26,6 @@ public class SwitchMaterialWhenNotInView : MonoBehaviour
             {
                 meshre.material = BehindMat;
             }
-            Debug.Log(hit.collider.gameObject.name);
         }
         else
         {
