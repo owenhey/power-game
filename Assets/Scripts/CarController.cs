@@ -42,9 +42,12 @@ public class CarController : MonoBehaviour {
         float turnFactor = isDrifting ? driftTurnSpeedFactor : 1.0f;
         Vector3 linearVelocity = body.linearVelocity + (transform.forward * (turnFactor * forwardInput * baseSpeed * Time.deltaTime));
         // If drifting, just use linear velocity & slow down the car slightly
-        if (isDrifting) {
+        if (isDrifting)
+        {
             linearVelocity = startDriftVelocity * driftSpeedFactor;
             powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 3);
+
+            Debug.Log(linearVelocity);
         }
         else
         {
