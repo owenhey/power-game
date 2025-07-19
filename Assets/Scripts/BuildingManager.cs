@@ -81,7 +81,7 @@ public class BuildingManager : MonoBehaviour {
 
 
     private List<PowerableBuildings> GetPoweredBuildings(bool powered) {
-        return buildings.Where(x => x.PoweredOn = powered).ToList();
+        return buildings.Where(x => x.PoweredOn == powered).ToList();
     }
 }
 
