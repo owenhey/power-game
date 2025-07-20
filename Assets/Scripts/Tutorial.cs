@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,9 +16,12 @@ public class Tutorial : MonoBehaviour
     public GameObject tut1;
     public GameObject tut2;
     public GameObject tut3;
+    public GameObject tut4;
 
     [SerializeField] private List<GameObject> onePlayerThings;
     [SerializeField] private List<GameObject> twoPlayerThings;
+
+    [SerializeField] private List<PowerableBuildings> buildings;
 
     private void Awake()
     {
@@ -35,7 +39,7 @@ public class Tutorial : MonoBehaviour
             thing.SetActive(GameSettings.PlayerCount == 1);
         }
         foreach (var thing in twoPlayerThings) {
-            thing.SetActive(GameSettings.PlayerCount == 2);
+            thing.SetActive(GameSettings.PlayerCount == 2 || GameSettings.PlayerCount == 0);
         }
         
         UpdateTut();
@@ -70,5 +74,22 @@ public class Tutorial : MonoBehaviour
         tut1.gameObject.SetActive(tutPhase == 0);
         tut2.gameObject.SetActive(tutPhase == 1);
         tut3.gameObject.SetActive(tutPhase == 2);
+        if (tutPhase == 3)
+        {
+            StartCoroutine(delay());
+            IEnumerator delay()
+            {
+                foreach (var building in buildings)
+                {
+                    building.PowerDown();
+                    building.ForcePowerOff = true;
+                    yield return new WaitForSeconds(.1f);
+                }
+            }
+        }
+        tut4.gameObject.SetActive(tutPhase == 3);
+        
+        NextButton.gameObject.SetActive(tutPhase < 4);
+        PlayButton.gameObject.SetActive(tutPhase >= 4);
     }
 }

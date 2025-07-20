@@ -22,6 +22,8 @@ public class PowerableBuildings : MonoBehaviour {
 
     private Tween powerShaderTween;
 
+    public bool ForcePowerOff;
+
     private Material material {
         get {
             if (_material == null) {
@@ -49,6 +51,14 @@ public class PowerableBuildings : MonoBehaviour {
     public void AttemptPowerUp()
     {
         if (PoweredOn) return;
+
+        // For the tutorial
+        if (ForcePowerOff)
+        {
+            PowerUp();
+            return;
+        }
+        
         int collectedKilowatts = GameManager.Instance.Kilowatts;
         if (collectedKilowatts >= PowerRequired) {
             GameManager.Instance.Kilowatts -= PowerRequired;
@@ -68,7 +78,7 @@ public class PowerableBuildings : MonoBehaviour {
         audioSource.Play();
         poweredMapIndicator.gameObject.SetActive(false);
         
-        BuildingManager.Instance.RecalculateLoseCondition();
+        BuildingManager.Instance?.RecalculateLoseCondition();
     }
 
     private void PowerUp() {

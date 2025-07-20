@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4974093470122425733}
   - component: {fileID: 6921275394592808627}
-  - component: {fileID: 9086262076352211428}
   - component: {fileID: 3453958741511094500}
   - component: {fileID: 5271327692015491282}
   m_Layer: 0
@@ -28,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2557958918388179971}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37174797, y: -0.60150105, z: 0.37174806, w: 0.60150087}
-  m_LocalPosition: {x: 17.060001, y: 20.39, z: -12.629999}
+  m_LocalRotation: {x: 0.48749015, y: 0.36570475, z: -0.2354821, w: 0.75707436}
+  m_LocalPosition: {x: -21.876575, y: 22, z: 25.166552}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,14 +85,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &9086262076352211428
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2557958918388179971}
-  m_Enabled: 1
 --- !u!114 &3453958741511094500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +363,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4522225996874570451}
+  - component: {fileID: 5896042197921433491}
+  - component: {fileID: 4074018053016743508}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -396,6 +389,29 @@ Transform:
   - {fileID: 8271957205678546392}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5896042197921433491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6394332344619430262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cf22951c54ad34198014a9825ea314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 3684512135257089064}
+  Player2: {fileID: 2948042069368211342}
+  Player1Cam: {fileID: 2794634715874427291}
+--- !u!81 &4074018053016743508
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6394332344619430262}
+  m_Enabled: 1
 --- !u!1 &6525986952788272592
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,8 +440,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6525986952788272592}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.37174797, y: -0.60150105, z: 0.37174806, w: 0.60150087}
-  m_LocalPosition: {x: 17.060001, y: 20.39, z: -12.63}
+  m_LocalRotation: {x: 0.48749015, y: 0.36570475, z: -0.2354821, w: 0.75707436}
+  m_LocalPosition: {x: -20.476576, y: 22, z: 30.966553}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -983,6 +999,8 @@ MonoBehaviour:
   minSpeedToDrift: 5
   driftTurnSpeedFactor: 0.6
   driftMinSpeedFactor: 0.5
+  driftSource: {fileID: 0}
+  shootOffSource: {fileID: 0}
 --- !u!1001 &9160520757639668877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1150,6 +1168,8 @@ MonoBehaviour:
   minSpeedToDrift: 5
   driftTurnSpeedFactor: 0.6
   driftMinSpeedFactor: 0.5
+  driftSource: {fileID: 0}
+  shootOffSource: {fileID: 0}
 --- !u!4 &8694775659765498726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6161a4d3a5514c5aaa3efbd6ebbdba7, type: 3}

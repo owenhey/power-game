@@ -26,7 +26,7 @@ public class PowerParcel : MonoBehaviour
             ParticleSystem particles = Instantiate(PowerBurstPreFab);
             particles.transform.position = other.transform.position;
 
-            SoundsOnObjectDestroy.instance.PlayCollect();
+            SoundsOnObjectDestroy.instance?.PlayCollect();
             Destroy(gameObject);
         }
     }

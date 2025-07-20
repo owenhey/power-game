@@ -37,6 +37,13 @@ public class BuildingManager : MonoBehaviour {
         var currTime = GameManager.Instance.TimeSinceGameBegan;
         var cyclesData = cycles[0];
         for (int i = 0; i < cyclesData.Cycles.Count; i++) {
+            if (GameSettings.PlayerCount == 1)
+            {
+                if (i % 2 == 0)
+                {
+                    continue;
+                }
+            }
             var cycle = cyclesData.Cycles[i];
             if(cycle.Fired) continue;
             if (cyclesData.Cycles[i].Time < currTime) {

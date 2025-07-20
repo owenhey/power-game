@@ -169,7 +169,6 @@ public class CarController : MonoBehaviour
     private void StopDrift()
     {
         driftSource.Stop();
-        shootOffSource.Play();
         
         isDrifting = false;
         driftSpeedFactor = 1.0f;
@@ -180,6 +179,7 @@ public class CarController : MonoBehaviour
         float moreThanpoint3 = timeDrifting - .3f;
         if (speedBoost > 1.0f) {
             speedBoost += moreThanpoint3 * 2;
+            shootOffSource.Play();
         }
         body.linearVelocity = transform.forward * (magOfCurVel * speedBoost);
         particles.Emit(25);
