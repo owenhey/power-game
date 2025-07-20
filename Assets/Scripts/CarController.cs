@@ -19,7 +19,6 @@ public class CarController : MonoBehaviour
     public float horizontalInput;
     public float forwardInput;
     public bool isDrifting;
-    public int totalPowerCollected = 0;
 
     [Header("Drifting")]
     public float minSpeedToDrift = 5;
@@ -31,7 +30,12 @@ public class CarController : MonoBehaviour
     private Vector3 startDriftVelocity;
     private Vector3 startDriftRotation;
     private Tween driftSpeedFactorTween;
-    
+
+    // Stats
+    public int totalPowerCollected = 0;
+    public int parcelsCollected = 0;
+
+    // Audio
     [SerializeField] private AudioSource driftSource;
     [SerializeField] private AudioSource shootOffSource;
 

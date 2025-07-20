@@ -15,6 +15,13 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TimePassed;
     [SerializeField] private TextMeshProUGUI MainText;
     [SerializeField] private TextMeshProUGUI SecondText;
+    [SerializeField] private TextMeshProUGUI TotalKW;
+    [SerializeField] private CarController Player1;
+    [SerializeField] private CarController Player2;
+    [SerializeField] private TextMeshProUGUI Player1TotalKW;
+    [SerializeField] private TextMeshProUGUI Player1TotalParcels;
+    [SerializeField] private TextMeshProUGUI Player2TotalKW;
+    [SerializeField] private TextMeshProUGUI Player2TotalParcels;
     [SerializeField] private GameObject WonThings;
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private CanvasGroup EndGame;
@@ -137,7 +144,14 @@ public class UI : MonoBehaviour
         MainText.text = GameManager.Lost ? "Game Over!" : "VICTORY!";
         SecondText.text = GameManager.Lost ? "Over a third of the buildings in Kinetic City lost power!" : "You saved Kinetic City from a POWER DISASTER";
         WonThings.gameObject.SetActive(GameManager.Lost == false);
-        
+
+        TotalKW.text = (Player1.totalPowerCollected + Player2.totalPowerCollected).ToString() + "KW";
+
+        Player1TotalKW.text = Player1.totalPowerCollected.ToString() + "KW";
+        Player1TotalParcels.text = Player1.parcelsCollected.ToString();
+        Player2TotalKW.text = Player2.totalPowerCollected.ToString() + "KW";
+        Player2TotalParcels.text = Player2.parcelsCollected.ToString();
+
         EndGame.gameObject.SetActive(true);
         EndGame.DOFade(1.0f, 25f);
     }
