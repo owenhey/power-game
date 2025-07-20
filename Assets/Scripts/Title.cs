@@ -20,6 +20,8 @@ public class Title : MonoBehaviour
         
         playButton1p.onClick.AddListener(PlayOneP);
         playButton2p.onClick.AddListener(PlayTwoP);
+
+        Application.targetFrameRate = 60;
     }
 
     private void PlayOneP()
