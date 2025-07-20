@@ -51,10 +51,13 @@ public class GameManager : MonoBehaviour {
         StartGame();
     }
     
-    public void StartGame() {
+    public void StartGame()
+    {
+        _timeGameBegun = Time.time;
         TimeSinceGameBegan = 0;
         Kilowatts = 0;
         TimeGameBegun = Time.time;
+        Lost = false;
         
         IsPlaying = true;
     }

@@ -21,10 +21,13 @@ public class BuildingManager : MonoBehaviour {
     }
 
     private void Update() {
+        Debug.Log("1");
         if (GameManager.Instance.IsPlaying == false) return;
+        Debug.Log("2");
         if (cycles == null && GameManager.Instance.IsPlaying) {
             GenerateCycles();
         }
+        Debug.Log("3");
 
         if (GameManager.Instance.TimeSinceGameBegan > cycles[0].GameEndTime) {
             cycles.RemoveAt(0);
@@ -33,8 +36,9 @@ public class BuildingManager : MonoBehaviour {
                 return;
             }
         }
+        Debug.Log("4");
 
-        var currTime = GameManager.Instance.TimeSinceGameBegan;
+        var currTime = Time.time;
         var cyclesData = cycles[0];
         for (int i = 0; i < cyclesData.Cycles.Count; i++) {
             if (GameSettings.PlayerCount == 1)
