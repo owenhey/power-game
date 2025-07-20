@@ -169,7 +169,12 @@ public class CarController : MonoBehaviour
         driftSpeedFactor = 1.0f;
 
         var magOfCurVel = body.linearVelocity.magnitude;
-        float speedBoost = Time.time - timeStartDrift > .3f ? 2.0f : 1.0f;
+        float timeDrifting = (Time.time - timeStartDrift);
+        float speedBoost = Time.time - timeStartDrift > .3f ? 1.5f : 1.0f;
+        float moreThanpoint3 = timeDrifting - .3f;
+        if (speedBoost > 1.0f) {
+            speedBoost += moreThanpoint3 * 2;
+        }
         body.linearVelocity = transform.forward * (magOfCurVel * speedBoost);
         particles.Emit(25);
     }
