@@ -17106,8 +17106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ASIntro: {fileID: 560052159}
   ASLoop: {fileID: 560052158}
-  introSound: {fileID: 8300000, guid: 542250306e8304f3696ec970679b6232, type: 3}
-  loopingSound: {fileID: 8300000, guid: e113caa81265e43c08322f522828670b, type: 3}
+  introSound: {fileID: 8300000, guid: f8c13060763c74178abbb445012a87a2, type: 3}
+  loopingSound: {fileID: 8300000, guid: bdbbd7a9e4265436caae3e0ea8359bcc, type: 3}
 --- !u!4 &560052161
 Transform:
   m_ObjectHideFlags: 0
@@ -25916,7 +25916,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: b3cc4fe2351871748b321849ba2ae8ee, type: 2}
   m_audioClip: {fileID: 8300000, guid: 758601ee9cfc77c41bd085e6712acfdf, type: 3}
   m_Resource: {fileID: 8300000, guid: 758601ee9cfc77c41bd085e6712acfdf, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -28363,14 +28363,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PowerDownData:
-  - NumToPowerDown: 5
-    NumCycles: 5
+  - NumToPowerDown: 10
+    NumCycles: 10
     MaxNumAtOnce: 1
     PercentThrough: 0
-  - NumToPowerDown: 12
-    NumCycles: 5
+  - NumToPowerDown: 15
+    NumCycles: 10
+    MaxNumAtOnce: 2
+    PercentThrough: 0.25
+  - NumToPowerDown: 20
+    NumCycles: 10
     MaxNumAtOnce: 3
     PercentThrough: 0.5
+  - NumToPowerDown: 25
+    NumCycles: 10
+    MaxNumAtOnce: 3
+    PercentThrough: 0.75
 --- !u!4 &1509806321
 Transform:
   m_ObjectHideFlags: 0
@@ -35400,7 +35408,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: b3cc4fe2351871748b321849ba2ae8ee, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4b718905986ad954ca28cf760e170770, type: 3}
   m_Resource: {fileID: 8300000, guid: 4b718905986ad954ca28cf760e170770, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

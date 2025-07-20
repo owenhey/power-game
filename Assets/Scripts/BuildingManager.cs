@@ -72,11 +72,11 @@ public class BuildingManager : MonoBehaviour {
         }
         
         // Debugs all the cycles out
-        // foreach (var cycle in cycles) {
-        //     foreach (var powerDown in cycle.Cycles) {
-        //         Debug.Log(powerDown);
-        //     }
-        // }
+        foreach (var cycle in cycles) {
+            foreach (var powerDown in cycle.Cycles) {
+                Debug.Log(powerDown);
+            }
+        }
     }
 
     public void RecalculateLoseCondition() {
