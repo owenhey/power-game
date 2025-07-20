@@ -32,6 +32,7 @@ public class CarController : MonoBehaviour
     private Tween driftSpeedFactorTween;
     
     [SerializeField] private AudioSource driftSource;
+    [SerializeField] private AudioSource shootOffSource;
 
     // Update is called once per frame
     void Update()
@@ -162,6 +163,7 @@ public class CarController : MonoBehaviour
     private void StopDrift()
     {
         driftSource.Stop();
+        shootOffSource.Play();
         
         isDrifting = false;
         driftSpeedFactor = 1.0f;
