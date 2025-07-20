@@ -16,6 +16,7 @@ public class UI : MonoBehaviour
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private CanvasGroup EndGame;
     [SerializeField] private Button PauseButton;
+    [SerializeField] private Button PlayButton;
     [SerializeField] private Button EndGameButton;
     [SerializeField] private Button QuitButton;
     [SerializeField] private Slider volumeSlider;
@@ -38,6 +39,7 @@ public class UI : MonoBehaviour
         volumeSlider.onValueChanged.AddListener(HandleSliderChange);
         
         EndGameButton.onClick.AddListener(QuitGame);
+        PlayButton.onClick.AddListener(UnPause);
         QuitButton.onClick.AddListener(QuitGame);
     }
 

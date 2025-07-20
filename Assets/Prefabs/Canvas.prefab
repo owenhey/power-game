@@ -1664,6 +1664,7 @@ MonoBehaviour:
   PauseMenu: {fileID: 5745197575311543412}
   EndGame: {fileID: 673261542127081112}
   PauseButton: {fileID: 7710688728626213618}
+  PlayButton: {fileID: 3074595318979044723}
   EndGameButton: {fileID: 9070274932569424172}
   QuitButton: {fileID: 2583991036791057091}
   volumeSlider: {fileID: 8758844582891307702}

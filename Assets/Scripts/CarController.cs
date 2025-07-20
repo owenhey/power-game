@@ -30,6 +30,8 @@ public class CarController : MonoBehaviour
     private Vector3 startDriftVelocity;
     private Vector3 startDriftRotation;
     private Tween driftSpeedFactorTween;
+    
+    [SerializeField] private AudioSource driftSource;
 
     // Update is called once per frame
     void Update()
@@ -159,6 +161,8 @@ public class CarController : MonoBehaviour
 
     private void StopDrift()
     {
+        driftSource.Stop();
+        
         isDrifting = false;
         driftSpeedFactor = 1.0f;
 
@@ -170,6 +174,8 @@ public class CarController : MonoBehaviour
 
     private void StartDrift()
     {
+        driftSource.Play();
+        
         timeStartDrift = Time.time;
         isDrifting = true;
         startDriftVelocity = body.linearVelocity;
