@@ -20,8 +20,13 @@ public class PowerParcel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if(GameManager.Instance != null)
-             GameManager.Instance.Kilowatts += PowerToGive;
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.Kilowatts += PowerToGive;
+            }
+
+            other.GetComponent<CarController>().totalPowerCollected += PowerToGive;
+            other.GetComponent<CarController>().parcelsCollected += 1;
 
             ParticleSystem particles = Instantiate(PowerBurstPreFab);
             particles.transform.position = other.transform.position;
