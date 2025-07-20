@@ -101,7 +101,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3141432946775826233}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 30c5be23b749c4013a029fb347a16047, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -134,6 +134,7 @@ MonoBehaviour:
   poweredMapIndicator: {fileID: 2538767573782298386}
   PowerRequired: 400
   PoweredOn: 1
+  ForcePowerOff: 0
 --- !u!65 &8737264575822429020
 BoxCollider:
   m_ObjectHideFlags: 0
