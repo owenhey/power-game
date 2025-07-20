@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class PowerParcel : MonoBehaviour
 {
@@ -6,6 +7,14 @@ public class PowerParcel : MonoBehaviour
     [SerializeField] private AudioClip[] collectSounds;
     public ParticleSystem PowerBurstPreFab;
     public int PowerToGive = 100;
+
+    private void Awake() {
+        transform.DOScale(transform.localScale, .25f).From(0);
+    }
+
+    private void Update() {
+        transform.Rotate(0, 120 * Time.deltaTime, 0);
+    }
     
     private void OnTriggerEnter(Collider other)
     {
