@@ -132,7 +132,7 @@ MonoBehaviour:
   powerUpSound: {fileID: 8300000, guid: 4b718905986ad954ca28cf760e170770, type: 3}
   powerDownSound: {fileID: 8300000, guid: 1773e58dc63bfea42b3565425d2ae622, type: 3}
   poweredMapIndicator: {fileID: 2538767573782298386}
-  PowerRequired: 40
+  PowerRequired: 400
   PoweredOn: 1
 --- !u!65 &8737264575822429020
 BoxCollider:

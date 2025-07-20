@@ -2895,7 +2895,7 @@ Transform:
   m_GameObject: {fileID: 184990339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.25, y: 0, z: 25.86}
+  m_LocalPosition: {x: 19.25, y: 0, z: 26.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17670,9 +17670,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 184990340}
+  - {fileID: 2087823622}
   - {fileID: 1482028808}
   - {fileID: 52627837}
   - {fileID: 1882322117}
+  - {fileID: 1549118506}
+  - {fileID: 1475143609}
   m_Father: {fileID: 1664485066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &587895743
@@ -28195,6 +28198,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ef3d9e29ab6d3418e98560f97e7a089b, type: 3}
   m_PrefabInstance: {fileID: 1473338279}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1475143608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1475143609}
+  m_Layer: 0
+  m_Name: ParcelPosition (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1475143609
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475143608}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.589996, y: 0, z: 4.5599995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 587282848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1482028807
 GameObject:
   m_ObjectHideFlags: 0
@@ -28220,7 +28254,7 @@ Transform:
   m_GameObject: {fileID: 1482028807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.6, y: 0, z: 11.3}
+  m_LocalPosition: {x: -7.6, y: 0, z: 11.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29114,6 +29148,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4134228649281941966, guid: 2fd8fcf18c18c499b82c9f31454b3f52, type: 3}
   m_PrefabInstance: {fileID: 1545671132}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1549118505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1549118506}
+  m_Layer: 0
+  m_Name: ParcelPosition (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1549118506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549118505}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33.589996, y: 0, z: -1.9400005}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 587282848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1558515512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30650,7 +30715,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  NumParcelsToSpawn: 5
+  NumParcelsToSpawn: 30
   ParcelsSpawnedSoFar: 0
   PowerParcelPrefab: {fileID: 1305120162917417086, guid: c73d487230aa9f94d94700887ee710b8, type: 3}
   ParcelSpawnPos:
@@ -33100,7 +33165,7 @@ Transform:
   m_GameObject: {fileID: 1882322116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.41, y: 0, z: -3.94}
+  m_LocalPosition: {x: -25.910002, y: 0, z: 18.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34902,6 +34967,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2365318008625710467, guid: dc5483c356b1f4b0ab651e8fab11bdee, type: 3}
   m_PrefabInstance: {fileID: 2083573629}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2087823621
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2087823622}
+  m_Layer: 0
+  m_Name: ParcelPosition (8)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2087823622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087823621}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 34.25, y: 0, z: 22.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 587282848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2088210753
 PrefabInstance:
   m_ObjectHideFlags: 0

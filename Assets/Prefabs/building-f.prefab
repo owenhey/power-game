@@ -442,7 +442,7 @@ MonoBehaviour:
   powerUpSound: {fileID: 8300000, guid: 4b718905986ad954ca28cf760e170770, type: 3}
   powerDownSound: {fileID: 8300000, guid: 1773e58dc63bfea42b3565425d2ae622, type: 3}
   poweredMapIndicator: {fileID: 5588060090826640363}
-  PowerRequired: 60
+  PowerRequired: 600
   PoweredOn: 1
 --- !u!82 &-1254960281811564029
 AudioSource:
