@@ -34,6 +34,7 @@ public class UI : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private GameObject player2STats;
+    [SerializeField] private Image[] yellowStars;
 
     public RectTransform kwtext => KilowattsText.rectTransform;
     
@@ -150,11 +151,13 @@ public class UI : MonoBehaviour
         AudioManager.Instance.StopMusic();
         
         player2STats.SetActive(GameSettings.PlayerCount != 1);
-        
+
+        yellowStars[0].enabled = GameManager.Instance.TimeSinceGameBegan > 60;
+        yellowStars[1].enabled = GameManager.Instance.TimeSinceGameBegan > 120;
+        yellowStars[2].enabled = GameManager.Instance.TimeSinceGameBegan > 175;
         
         MainText.text = GameManager.Lost ? "Game Over!" : "VICTORY!";
         SecondText.text = GameManager.Lost ? "Over a third of the buildings in Kinetic City lost power!" : "You saved Kinetic City from a POWER DISASTER";
-        WonThings.gameObject.SetActive(GameManager.Lost == false);
 
         TotalKW.text = (Player1.totalPowerCollected + Player2.totalPowerCollected).ToString() + "KW";
 
