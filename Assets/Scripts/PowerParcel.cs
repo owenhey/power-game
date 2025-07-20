@@ -6,8 +6,8 @@ public class PowerParcel : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] collectSounds;
     public ParticleSystem PowerBurstPreFab;
-    public int PowerToGive = 100;
-
+    public int PowerToGive = 800;
+    
     private void Awake() {
         transform.DOScale(transform.localScale, .25f).From(0);
     }
