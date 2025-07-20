@@ -81,7 +81,8 @@ public class BuildingManager : MonoBehaviour {
 
     public void RecalculateLoseCondition() {
         var unpoweredBuildings = GetPoweredBuildings(false);
-        if (unpoweredBuildings.Count >= buildings.Length / 2.0) {
+        if (unpoweredBuildings.Count >= buildings.Length / 3.0) {
+            GameManager.Lost = true;
             GameManager.Instance.EndGame();
         }
     }

@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour {
     public float TimeSinceGameBegan;
     public bool IsPlaying = false;
 
+    public static bool Lost;
+    
     public int Kilowatts
     {
         get
@@ -62,6 +64,7 @@ public class GameManager : MonoBehaviour {
         TimeSinceGameBegan += Time.deltaTime;
 
         if (TimeSinceGameBegan > GameSeconds) {
+            Lost = false;
             EndGame();
         }
     }
