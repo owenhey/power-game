@@ -51,7 +51,7 @@ public class CarController : MonoBehaviour
         if (isDrifting)
         {
             linearVelocity = startDriftVelocity * driftSpeedFactor;
-            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 10);
+            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 6);
 
             Debug.Log(linearVelocity);
         }
