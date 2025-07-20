@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 
@@ -39,8 +40,6 @@ public class CarController : MonoBehaviour
     {
         if(GameManager.Instance.IsPlaying == false) return;
         
-        int powerCollected = 0;
-
         // Get user input
         GetInput();
 
@@ -51,16 +50,11 @@ public class CarController : MonoBehaviour
         if (isDrifting)
         {
             linearVelocity = startDriftVelocity * driftSpeedFactor;
-            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 10);
-
             Debug.Log(linearVelocity);
         }
         else
         {
             linearVelocity = Vector3.Dot(transform.forward, linearVelocity) * transform.forward;
-            powerCollected += Mathf.FloorToInt(linearVelocity.magnitude / 15);
-
-            Debug.Log(powerCollected);
         }
         body.linearVelocity = Vector3.ClampMagnitude(linearVelocity, topSpeed);
 
@@ -74,6 +68,20 @@ public class CarController : MonoBehaviour
 
         currentRotationSpeed = body.angularVelocity;
 
+        // particles.Emit(powerCollected);
+    }
+
+    private void FixedUpdate() {
+        int powerCollected = 0;
+
+        if (isDrifting) {
+            powerCollected += Mathf.RoundToInt(body.linearVelocity.magnitude / 3.0f);
+            particles.Emit(1);
+        }
+        else {
+            powerCollected += Mathf.FloorToInt(body.linearVelocity.magnitude / 12);
+        }
+        
         // Add speed to kilowatts
         if (GameManager.Instance != null)
         {
@@ -81,8 +89,6 @@ public class CarController : MonoBehaviour
         }
 
         totalPowerCollected += powerCollected;
-
-        // particles.Emit(powerCollected);
     }
 
     private void GetInput()
