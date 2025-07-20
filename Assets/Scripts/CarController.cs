@@ -54,7 +54,6 @@ public class CarController : MonoBehaviour
         if (isDrifting)
         {
             linearVelocity = startDriftVelocity * driftSpeedFactor;
-            Debug.Log(linearVelocity);
         }
         else
         {

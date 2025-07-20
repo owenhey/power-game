@@ -35771,7 +35771,7 @@ MonoBehaviour:
     NumCycles: 10
     MaxNumAtOnce: 2
     PercentThrough: 0.25
-  - NumToPowerDown: 30
+  - NumToPowerDown: 35
     NumCycles: 20
     MaxNumAtOnce: 3
     PercentThrough: 0.5
