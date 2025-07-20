@@ -38,7 +38,7 @@ public class CarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.Instance.IsPlaying == false) return;
+        if(GameManager.Instance && GameManager.Instance.IsPlaying == false) return;
         
         // Get user input
         GetInput();
