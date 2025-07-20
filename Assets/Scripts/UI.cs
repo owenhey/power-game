@@ -13,6 +13,9 @@ public class UI : MonoBehaviour
     [SerializeField] private Image Darken;
     [SerializeField] private TextMeshProUGUI BuildingsDown;
     [SerializeField] private TextMeshProUGUI TimePassed;
+    [SerializeField] private TextMeshProUGUI MainText;
+    [SerializeField] private TextMeshProUGUI SecondText;
+    [SerializeField] private GameObject WonThings;
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private CanvasGroup EndGame;
     [SerializeField] private Button PauseButton;
@@ -131,6 +134,10 @@ public class UI : MonoBehaviour
     }
 
     private void InstanceShowEndGame() {
+        MainText.text = GameManager.Lost ? "Game Over!" : "VICTORY!";
+        SecondText.text = GameManager.Lost ? "Over a third of the buildings in Kinetic City lost power!" : "You saved Kinetic City from a POWER DISASTER";
+        WonThings.gameObject.SetActive(GameManager.Lost == false);
+        
         EndGame.gameObject.SetActive(true);
         EndGame.DOFade(1.0f, 25f);
     }

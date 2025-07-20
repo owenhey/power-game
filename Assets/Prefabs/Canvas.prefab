@@ -1661,6 +1661,9 @@ MonoBehaviour:
   Darken: {fileID: 5649839906824207621}
   BuildingsDown: {fileID: 1648781963360909847}
   TimePassed: {fileID: 2496097642530202389}
+  MainText: {fileID: 3606191844408172592}
+  SecondText: {fileID: 578834141865610359}
+  WonThings: {fileID: 5886827596317048529}
   PauseMenu: {fileID: 5745197575311543412}
   EndGame: {fileID: 673261542127081112}
   PauseButton: {fileID: 7710688728626213618}
@@ -3995,7 +3998,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 700, y: 150}
+  m_SizeDelta: {x: 800, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4898188974818431927
 CanvasRenderer:
@@ -4025,7 +4028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Over half the buildings in Kinetic City lost power
+  m_text: Over a third of the buildings in Kinetic City lost power
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c27aa64d87f6d475c9b3880c1115f8f4, type: 2}
   m_sharedMaterial: {fileID: 1692036879114641410, guid: c27aa64d87f6d475c9b3880c1115f8f4, type: 2}

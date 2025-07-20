@@ -17034,12 +17034,12 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: b3cc4fe2351871748b321849ba2ae8ee, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e113caa81265e43c08322f522828670b, type: 3}
-  m_Resource: {fileID: 8300000, guid: e113caa81265e43c08322f522828670b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: bdbbd7a9e4265436caae3e0ea8359bcc, type: 3}
+  m_Resource: {fileID: 8300000, guid: bdbbd7a9e4265436caae3e0ea8359bcc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -17131,8 +17131,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: b3cc4fe2351871748b321849ba2ae8ee, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 542250306e8304f3696ec970679b6232, type: 3}
-  m_Resource: {fileID: 8300000, guid: 542250306e8304f3696ec970679b6232, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f8c13060763c74178abbb445012a87a2, type: 3}
+  m_Resource: {fileID: 8300000, guid: f8c13060763c74178abbb445012a87a2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -36711,7 +36711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974093470122425733, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17
+      value: 12.860001
       objectReference: {fileID: 0}
     - target: {fileID: 4974093470122425733, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36719,7 +36719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4974093470122425733, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.50003
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4974093470122425733, guid: b08abbc1df77e4bf9b4363b2bc9b746d, type: 3}
       propertyPath: m_LocalRotation.w
