@@ -9,6 +9,13 @@ public class AudioManager : MonoBehaviour {
     [SerializeField] private AudioSource ASLoop;
     [SerializeField] private AudioSource ASLoop2;
     [SerializeField] private AudioClip loopingSound;
+
+    public void StopMusic()
+    {
+        ASLoop.Stop();    
+        ASLoop2.Stop();    
+        StopAllCoroutines();
+    }
     
     private void Awake() {
         Instance = this;

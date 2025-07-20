@@ -146,6 +146,8 @@ public class UI : MonoBehaviour
     }
 
     private void InstanceShowEndGame() {
+        AudioManager.Instance.StopMusic();
+        
         player2STats.SetActive(GameSettings.PlayerCount != 1);
         
         
