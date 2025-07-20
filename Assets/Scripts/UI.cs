@@ -13,7 +13,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI KilowattsText;
     [SerializeField] private Image Darken;
     [SerializeField] private TextMeshProUGUI BuildingsDown;
-    [SerializeField] private TextMeshProUGUI TimePassed;
+    [SerializeField] private TextMeshProUGUI TimeLeft;
     [SerializeField] private TextMeshProUGUI MainText;
     [SerializeField] private TextMeshProUGUI SecondText;
     [SerializeField] private TextMeshProUGUI TotalKW;
@@ -23,6 +23,7 @@ public class UI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Player1TotalParcels;
     [SerializeField] private TextMeshProUGUI Player2TotalKW;
     [SerializeField] private TextMeshProUGUI Player2TotalParcels;
+    [SerializeField] private TextMeshProUGUI TimePassed;
     [SerializeField] private GameObject WonThings;
     [SerializeField] private CanvasGroup PauseMenu;
     [SerializeField] private CanvasGroup EndGame;
@@ -123,7 +124,7 @@ public class UI : MonoBehaviour
         int buildings = BuildingManager.Instance.TotalBuildings;
         BuildingsDown.text = $"{buildingsDown} building{(buildingsDown == 1 ? "" : "s")}";
         
-        TimePassed.text = $"{FloatToTimeString(GameManager.Instance.TimeSinceGameBegan)}";
+        TimeLeft.text = $"{FloatToTimeString(GameManager.Instance.GameSeconds - GameManager.Instance.TimeSinceGameBegan)}";
     }
     
     public static string FloatToTimeString(float totalSeconds)
@@ -161,6 +162,8 @@ public class UI : MonoBehaviour
         Player1TotalParcels.text = Player1.parcelsCollected.ToString();
         Player2TotalKW.text = Player2.totalPowerCollected.ToString() + "KW";
         Player2TotalParcels.text = Player2.parcelsCollected.ToString();
+
+        TimePassed.text = $"{FloatToTimeString(GameManager.Instance.TimeSinceGameBegan)}";
 
         EndGame.gameObject.SetActive(true);
         EndGame.DOFade(1.0f, 25f);
