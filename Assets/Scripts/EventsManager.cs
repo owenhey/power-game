@@ -28,6 +28,7 @@ public class EventsManager : MonoBehaviour
     private void SpawnParcel()
     {
         ParcelsSpawnedSoFar++;
+        if (ParcelsSpawnedSoFar % 2 == 0 && GameSettings.PlayerCount == 1) return;
         var randomizedSpawns = ParcelSpawnPos.OrderBy(x => Random.Range(0.0f, 1.0f)).ToArray();
         for (int i = 0; i < randomizedSpawns.Length; i++)
         {

@@ -39,7 +39,7 @@ public class BuildingManager : MonoBehaviour {
         for (int i = 0; i < cyclesData.Cycles.Count; i++) {
             if (GameSettings.PlayerCount == 1)
             {
-                if (i % 2 == 0)
+                if (i % 2 == 1)
                 {
                     continue;
                 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Misc;
 using DG.Tweening;
 using TMPro;
 using Unity.VisualScripting;
@@ -31,8 +32,11 @@ public class UI : MonoBehaviour
     [SerializeField] private Button QuitButton;
     [SerializeField] private Slider volumeSlider;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private GameObject player2STats;
 
-    private static UI Instance;
+    public RectTransform kwtext => KilowattsText.rectTransform;
+    
+    public static UI Instance;
 
     public static bool IsPaused = false;
 
@@ -83,6 +87,7 @@ public class UI : MonoBehaviour
     }
 
     private void Pause() {
+        MiscSounds.instance.PlayClick();
         IsPaused = true;
         Time.timeScale = 0;
         PauseMenu.gameObject.SetActive(true);
@@ -141,6 +146,9 @@ public class UI : MonoBehaviour
     }
 
     private void InstanceShowEndGame() {
+        player2STats.SetActive(GameSettings.PlayerCount != 1);
+        
+        
         MainText.text = GameManager.Lost ? "Game Over!" : "VICTORY!";
         SecondText.text = GameManager.Lost ? "Over a third of the buildings in Kinetic City lost power!" : "You saved Kinetic City from a POWER DISASTER";
         WonThings.gameObject.SetActive(GameManager.Lost == false);

@@ -5,6 +5,7 @@ namespace Assets.Scripts.Misc {
         public static MiscSounds instance;
 
         public AudioSource clickSound;
+        public AudioSource notEnoughPower;
         public AudioSource hoverSound;
 
         public void Awake(){
@@ -13,6 +14,10 @@ namespace Assets.Scripts.Misc {
 
         public void PlayClick(){
             clickSound.Play();
+        }
+        
+        public void PlayNotEnoughPower(){
+            notEnoughPower.Play();
         }
     }
 }

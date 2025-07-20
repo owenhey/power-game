@@ -1,4 +1,5 @@
 using System;
+using Assets.Scripts.Misc;
 using DG.Tweening;
 using UnityEngine;
 
@@ -63,6 +64,11 @@ public class PowerableBuildings : MonoBehaviour {
         if (collectedKilowatts >= PowerRequired) {
             GameManager.Instance.Kilowatts -= PowerRequired;
             PowerUp();
+        }
+        else
+        {
+            MiscSounds.instance.PlayNotEnoughPower();
+            UI.Instance.kwtext.DOShakeAnchorPos(.25f, 50, 15);
         }
             
         UI.Refresh();

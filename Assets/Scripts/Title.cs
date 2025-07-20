@@ -22,10 +22,13 @@ public class Title : MonoBehaviour
         playButton2p.onClick.AddListener(PlayTwoP);
 
         Application.targetFrameRate = 60;
+
+        Time.timeScale = 1.0f;
     }
 
     private void PlayOneP()
     {
+        Debug.Log("play one p");
         GameSettings.PlayerCount = 1;
         PlayGame();
     }
@@ -38,11 +41,13 @@ public class Title : MonoBehaviour
 
     public void PlayGame()
     {
+        Debug.Log("playing");
         playButton1p.interactable = false;
         playButton2p.interactable = false;
 
         screenDarken.DOColor(Color.black, .5f).OnComplete(() =>
         {
+            Debug.Log("loading scene");
             SceneManager.LoadScene("Tutorial");
         });
     }
