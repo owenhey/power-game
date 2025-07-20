@@ -96,7 +96,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4b718905986ad954ca28cf760e170770, type: 3}
   - {fileID: 8300000, guid: 758601ee9cfc77c41bd085e6712acfdf, type: 3}
   PowerBurstPreFab: {fileID: 3837554986854798849, guid: bffa516cd36d749c09271ad4d2366acd, type: 3}
-  PowerToGive: 100
+  PowerToGive: 1000
 --- !u!82 &3007056611235287964
 AudioSource:
   m_ObjectHideFlags: 0
