@@ -9,8 +9,9 @@ public class BuildingManager : MonoBehaviour {
 
     [SerializeField] private BuildingPowerDownData[] PowerDownData;
 
-    private List<BuildingPowerDownCycles> cycles;
-
+    public int numBuildingsToDepower = 100;
+    public AnimationCurve Distrbution;
+    public int ParcelsSpawnedSoFar = 0;
     public int BuildingsDown => buildings.Count(x => !x.PoweredOn);
     public int TotalBuildings => buildings.Length;
 
@@ -23,38 +24,24 @@ public class BuildingManager : MonoBehaviour {
     private void Update() {
         Debug.Log("1");
         if (GameManager.Instance.IsPlaying == false) return;
-        Debug.Log("2");
-        if (cycles == null && GameManager.Instance.IsPlaying) {
-            GenerateCycles();
-        }
-        Debug.Log("3");
+        float percentThroughGame = GameManager.Instance.TimeSinceGameBegan / GameManager.Instance.GameSeconds;
+        if (percentThroughGame > 1.0f) return;
 
-        if (GameManager.Instance.TimeSinceGameBegan > cycles[0].GameEndTime) {
-            cycles.RemoveAt(0);
-            if (cycles.Count == 0) {
-                this.enabled = false;
-                return;
-            }
+        float percent = (float)(ParcelsSpawnedSoFar + 1) / (numBuildingsToDepower + 1);
+        if (percent < Distrbution.Evaluate(percentThroughGame))
+        {
+            SpawnParcel();
         }
-        Debug.Log("4");
+    }
 
-        var currTime = Time.time;
-        var cyclesData = cycles[0];
-        for (int i = 0; i < cyclesData.Cycles.Count; i++) {
-            if (GameSettings.PlayerCount == 1)
-            {
-                if (i % 2 == 1)
-                {
-                    continue;
-                }
-            }
-            var cycle = cyclesData.Cycles[i];
-            if(cycle.Fired) continue;
-            if (cyclesData.Cycles[i].Time < currTime) {
-                FireCycle(cycle);
-                break;
-            }
-        }
+    private void SpawnParcel()
+    {
+        ParcelsSpawnedSoFar++;
+        if (ParcelsSpawnedSoFar % 2 == 0 && GameSettings.PlayerCount == 1) return;
+        var poweredBuildings = GetPoweredBuildings(true);
+        int index = Random.Range(0, poweredBuildings.Count);
+        poweredBuildings[index].PowerDown();
+        poweredBuildings.RemoveAt(index);
     }
 
     private void FireCycle(BuildingPowerDownCycle cycle) {
@@ -64,29 +51,6 @@ public class BuildingManager : MonoBehaviour {
             int index = Random.Range(0, poweredBuildings.Count);
             poweredBuildings[index].PowerDown();
             poweredBuildings.RemoveAt(index);
-        }
-    }
-
-    private void GenerateCycles() {
-        cycles = new();
-        for (int i = 0; i < PowerDownData.Length; i++) {
-            var data = PowerDownData[i];
-            float myTime = GameManager.Instance.GetTimeOfBuildingCycle(data.PercentThrough);
-            float nextTime = i < PowerDownData.Length - 1 ? 
-                GameManager.Instance.GetTimeOfBuildingCycle(PowerDownData[i + 1].PercentThrough) :
-                GameManager.Instance.GetTimeOfBuildingCycle(1);
-            cycles.Add(new BuildingPowerDownCycles() {
-                GameStartTime = myTime,
-                GameEndTime = nextTime,
-                Cycles = data.GetPowerDowns(myTime, nextTime)
-            });
-        }
-        
-        // Debugs all the cycles out
-        foreach (var cycle in cycles) {
-            foreach (var powerDown in cycle.Cycles) {
-                Debug.Log(powerDown);
-            }
         }
     }
 

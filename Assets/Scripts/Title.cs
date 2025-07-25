@@ -26,6 +26,11 @@ public class Title : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     private void PlayOneP()
     {
         Debug.Log("play one p");

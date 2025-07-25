@@ -35667,6 +35667,32 @@ MonoBehaviour:
     NumCycles: 20
     MaxNumAtOnce: 5
     PercentThrough: 0.75
+  numBuildingsToDepower: 100
+  Distrbution:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.277243
+      outSlope: 0.277243
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.20416667
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  ParcelsSpawnedSoFar: 0
 --- !u!4 &1509806321
 Transform:
   m_ObjectHideFlags: 0
